@@ -243,14 +243,6 @@ body {
   margin-bottom: 30px;
 }
 
-.wavy-underline {
-  text-decoration: underline;
-  text-decoration-style: wavy;
-  text-decoration-color: #6a0dad;
-  text-underline-offset: 6px;
-  text-decoration-thickness: 2px;
-}
-
 .btn-cta {
   display: inline-flex;
   align-items: center;
