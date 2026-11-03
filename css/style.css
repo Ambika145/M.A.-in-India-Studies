@@ -6939,11 +6939,14 @@ iframe {
 
 /* Desktop / 100%: keep monument hero large enough (landscape asset) */
 @media screen and (min-width: 992px) {
+  .hero-section .hero-main {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.55fr) minmax(0, 0.95fr) !important;
+  }
   .hero-section .hero-center {
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     min-height: 0 !important;
   }
   .hero-section .hero-student-stack {
@@ -6955,13 +6958,13 @@ iframe {
     justify-content: center !important;
   }
   .hero-section .hero-student-img {
-    /* Wide panorama asset — cover so it fills the hero column at 100% */
+    /* Wide panorama — contain so monuments stay visible (cover was cropping to sky) */
     width: 100% !important;
     max-width: 100% !important;
-    height: min(62vh, 30rem) !important;
-    max-height: min(62vh, 30rem) !important;
-    object-fit: cover !important;
-    object-position: center 35% !important;
+    height: auto !important;
+    max-height: min(58vh, 26rem) !important;
+    object-fit: contain !important;
+    object-position: bottom center !important;
   }
   .case-studies-grid {
     align-items: stretch;
