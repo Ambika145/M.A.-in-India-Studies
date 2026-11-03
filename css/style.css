@@ -6958,13 +6958,15 @@ iframe {
     justify-content: center !important;
   }
   .hero-section .hero-student-img {
-    /* Wide panorama — contain so monuments stay visible (cover was cropping to sky) */
-    width: 100% !important;
-    max-width: 100% !important;
+    /* Wide panorama — keep full monuments visible and scale up in the middle column */
+    width: 118% !important;
+    max-width: none !important;
     height: auto !important;
-    max-height: min(58vh, 26rem) !important;
+    max-height: min(64vh, 30rem) !important;
     object-fit: contain !important;
     object-position: bottom center !important;
+    transform: scale(1.22) !important;
+    transform-origin: bottom center !important;
   }
   .case-studies-grid {
     align-items: stretch;
