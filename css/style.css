@@ -6937,17 +6937,19 @@ iframe {
   object-fit: contain;
 }
 
-/* Desktop / 100%: keep monument hero large enough (landscape asset) */
+/* Desktop / 100%: tall monument hero, kept inside the middle column (no cut under title) */
 @media screen and (min-width: 992px) {
   .hero-section .hero-main {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.75fr) minmax(0, 0.9fr) !important;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.6fr) minmax(0, 0.95fr) !important;
+    overflow: visible !important;
   }
   .hero-section .hero-center {
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    overflow: visible !important;
+    overflow: hidden !important;
     min-height: 0 !important;
+    align-self: stretch !important;
   }
   .hero-section .hero-student-stack {
     width: 100% !important;
@@ -6956,18 +6958,17 @@ iframe {
     display: flex !important;
     align-items: flex-end !important;
     justify-content: center !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
   .hero-section .hero-student-img {
-    /* Taller monument hero — widen + scale so panorama gains height */
-    width: 150% !important;
-    max-width: none !important;
-    height: auto !important;
-    max-height: min(78vh, 38rem) !important;
-    object-fit: contain !important;
-    object-position: bottom center !important;
-    transform: scale(1.65) !important;
-    transform-origin: bottom center !important;
+    /* Cover + bottom = taller crop without spilling under left title text */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: min(68vh, 32rem) !important;
+    max-height: min(68vh, 32rem) !important;
+    object-fit: cover !important;
+    object-position: center bottom !important;
+    transform: none !important;
   }
   .case-studies-grid {
     align-items: stretch;
