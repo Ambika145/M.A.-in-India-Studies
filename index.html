@@ -27,22 +27,22 @@
     src="https://www.facebook.com/tr?id=1243343920376799&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0K2JZFDWZ"></script>
-    <script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K0K2JZFDWZ"></script>
+  <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-K0K2JZFDWZ');
-    </script>
+  </script>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>M.A. in India Studies – O.P. Jindal Global University</title>
-    <link rel="icon" href="Assets/favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
+  <title>M.A. in India Studies – O.P. Jindal Global University</title>
+  <link rel="icon" href="Assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="Assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="Assets/apple-touch-icon.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -319,7 +319,8 @@
         }
 
         .hero-section .hero-title {
-          font-size: clamp(1.6rem, 0.4rem + 2.1vw, 3.15rem) !important;
+          /* Hybrid vw+vh so 100% desktop stays bold; still capped for fit */
+          font-size: clamp(1.95rem, min(5.1vh, 0.55rem + 2.35vw), 3.15rem) !important;
           line-height: 1.22 !important;
           overflow: visible !important;
           padding-top: 0.32em !important;
@@ -331,13 +332,13 @@
         }
 
         .hero-section .hero-subtitle {
-          font-size: clamp(0.8rem, 0.3rem + 0.95vw, 1.65rem) !important;
+          font-size: clamp(1rem, min(2.9vh, 0.45rem + 1.05vw), 1.65rem) !important;
           margin-top: clamp(0.75rem, 2.4vh, 1.55rem) !important;
           line-height: 1.4 !important;
         }
 
         .hero-section .hero-description {
-          font-size: clamp(0.8rem, 0.3rem + 0.85vw, 1.45rem) !important;
+          font-size: clamp(0.95rem, min(2.45vh, 0.4rem + 0.9vw), 1.45rem) !important;
           margin-top: clamp(0.6rem, 1.9vh, 1.25rem) !important;
           line-height: 1.55 !important;
         }
@@ -345,7 +346,7 @@
         .hero-section .btn-apply-now {
           margin-top: clamp(0.85rem, 2.6vh, 1.8rem) !important;
           padding: clamp(0.75rem, 2vh, 1.25rem) clamp(2.4rem, 4.1vh, 3.75rem) !important;
-          font-size: clamp(0.85rem, 0.35rem + 0.6vw, 1.4rem) !important;
+          font-size: clamp(0.95rem, min(2.35vh, 0.4rem + 0.7vw), 1.4rem) !important;
         }
 
         .hero-info-bar {
@@ -356,7 +357,7 @@
           display: block !important;
           visibility: visible !important;
           opacity: 1 !important;
-          padding: clamp(0.85rem, 2.3vh, 1.55rem) 0 !important;
+          padding: clamp(0.95rem, 2.4vh, 1.65rem) 0 !important;
         }
 
         .hero-section .hero-info-inner {
@@ -364,7 +365,8 @@
         }
 
         .hero-section .hero-info-item {
-          font-size: clamp(1rem, 2.6vh, 1.45rem) !important;
+          font-size: clamp(1.1rem, min(2.8vh, 0.65rem + 0.95vw), 1.55rem) !important;
+          font-weight: 800 !important;
         }
 
         .hero-center {
@@ -443,8 +445,7 @@
         }
       }
 
-      /* Laptop / short-viewport (<=800px tall, >=992px wide): slightly tighter
-         left column so title + Apply button always sit above the info bar. */
+      /* Short laptop viewports: tighten spacing only — keep type readable at 100% */
       @media screen and (min-width: 992px) and (max-height: 800px) {
         .hero-section {
           --hero-form-bar-gap: clamp(0.5rem, 1.8vh, 1.25rem) !important;
@@ -459,13 +460,14 @@
         }
 
         .hero-section .header-logo-jgu {
-          height: clamp(3.2rem, 8vh, 4.4rem) !important;
-          max-height: clamp(3.2rem, 8vh, 4.4rem) !important;
+          height: clamp(3.4rem, 8.5vh, 4.8rem) !important;
+          max-height: clamp(3.4rem, 8.5vh, 4.8rem) !important;
         }
 
-        .hero-section .header-logo-jsbf {
-          height: clamp(3.6rem, 11vh, 5.2rem) !important;
-          max-height: clamp(3.6rem, 11vh, 5.2rem) !important;
+        .hero-section .header-logo-jsbf,
+        .hero-section .header-logo-jii {
+          height: clamp(3.8rem, 11.5vh, 5.6rem) !important;
+          max-height: clamp(3.8rem, 11.5vh, 5.6rem) !important;
         }
 
         .hero-left {
@@ -474,41 +476,42 @@
         }
 
         .hero-section .hero-title {
-          font-size: clamp(1.4rem, 0.3rem + 1.8vw, 2.5rem) !important;
-          line-height: 1.18 !important;
-          padding-top: 0.1em !important;
+          font-size: clamp(1.75rem, min(4.8vh, 0.5rem + 2.15vw), 2.85rem) !important;
+          line-height: 1.2 !important;
+          padding-top: 0.18em !important;
         }
 
         .hero-section .hero-title-rule {
-          margin-top: clamp(0.3rem, 1vh, 0.6rem) !important;
+          margin-top: clamp(0.35rem, 1.1vh, 0.7rem) !important;
         }
 
         .hero-section .hero-subtitle {
-          font-size: clamp(0.78rem, 0.25rem + 0.8vw, 1.15rem) !important;
-          margin-top: clamp(0.4rem, 1.4vh, 0.85rem) !important;
-          line-height: 1.32 !important;
+          font-size: clamp(0.92rem, min(2.4vh, 0.4rem + 0.9vw), 1.35rem) !important;
+          margin-top: clamp(0.5rem, 1.5vh, 0.95rem) !important;
+          line-height: 1.35 !important;
         }
 
         .hero-section .hero-description {
-          font-size: clamp(0.78rem, 0.25rem + 0.75vw, 1.05rem) !important;
-          margin-top: clamp(0.3rem, 1vh, 0.6rem) !important;
-          line-height: 1.4 !important;
+          font-size: clamp(0.9rem, min(2.2vh, 0.35rem + 0.8vw), 1.2rem) !important;
+          margin-top: clamp(0.35rem, 1.1vh, 0.7rem) !important;
+          line-height: 1.45 !important;
         }
 
         .hero-left .btn-apply-now,
         .hero-section .btn-apply-now {
-          margin-top: clamp(0.5rem, 1.6vh, 0.95rem) !important;
-          margin-bottom: 0.3rem !important;
-          padding: clamp(0.5rem, 1.4vh, 0.8rem) clamp(1.8rem, 3vh, 2.6rem) !important;
-          font-size: clamp(0.8rem, 0.3rem + 0.55vw, 1rem) !important;
+          margin-top: clamp(0.55rem, 1.7vh, 1.1rem) !important;
+          margin-bottom: 0.35rem !important;
+          padding: clamp(0.6rem, 1.6vh, 0.95rem) clamp(2rem, 3.2vh, 2.9rem) !important;
+          font-size: clamp(0.9rem, min(2.1vh, 0.35rem + 0.6vw), 1.15rem) !important;
         }
 
         .hero-info-bar {
-          padding: clamp(0.55rem, 1.6vh, 1rem) 0 !important;
+          padding: clamp(0.75rem, 2vh, 1.2rem) 0 !important;
         }
 
         .hero-section .hero-info-item {
-          font-size: clamp(0.85rem, 0.3rem + 0.7vw, 1.15rem) !important;
+          font-size: clamp(1.05rem, min(2.5vh, 0.55rem + 0.85vw), 1.35rem) !important;
+          font-weight: 800 !important;
         }
       }
 
@@ -540,7 +543,7 @@
         }
 
         .hero-section .hero-title {
-          font-size: clamp(1.35rem, 4.5vh, 2rem) !important;
+          font-size: clamp(1.55rem, 4.8vh, 2.25rem) !important;
           line-height: 1.2 !important;
           overflow: visible !important;
           padding-top: 0.12em !important;
@@ -551,25 +554,26 @@
         }
 
         .hero-section .hero-subtitle {
-          font-size: clamp(0.78rem, 2vh, 0.98rem) !important;
+          font-size: clamp(0.85rem, 2.2vh, 1.1rem) !important;
           margin-top: clamp(0.4rem, 1.3vh, 0.7rem) !important;
           line-height: 1.32 !important;
         }
 
         .hero-section .hero-description {
-          font-size: clamp(0.76rem, 1.85vh, 0.95rem) !important;
+          font-size: clamp(0.82rem, 2vh, 1.05rem) !important;
           margin-top: clamp(0.3rem, 1vh, 0.55rem) !important;
           line-height: 1.4 !important;
         }
 
         .hero-section .btn-apply-now {
-          margin-top: clamp(0.45rem, 1.4vh, 0.8rem) !important;
-          padding: clamp(0.5rem, 1.3vh, 0.75rem) clamp(1.8rem, 3vh, 2.4rem) !important;
-          font-size: clamp(0.78rem, 1.9vh, 0.95rem) !important;
+          margin-top: clamp(0.5rem, 1.5vh, 0.9rem) !important;
+          padding: clamp(0.55rem, 1.5vh, 0.85rem) clamp(2rem, 3.2vh, 2.7rem) !important;
+          font-size: clamp(0.85rem, 2.1vh, 1.05rem) !important;
         }
 
         .hero-section .hero-info-item {
-          font-size: clamp(0.82rem, 2.1vh, 1.05rem) !important;
+          font-size: clamp(0.95rem, 2.4vh, 1.2rem) !important;
+          font-weight: 800 !important;
         }
 
         .hero-section .hero-enquiry-card h3 {
@@ -615,10 +619,10 @@
     </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
+  <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N94ZC5LW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+  <!-- End Google Tag Manager (noscript) -->
 
 <section class="hero-section section-global">
   <div class="container hero-container">
@@ -642,31 +646,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="hero-title-gradient">
             <span class="hero-title-line">India Studies</span>
           </span>
-        </h1>
+          </h1>
         <div class="hero-title-rule" aria-hidden="true"></div>
         <p class="hero-subtitle">
           <span class="hero-subtitle-line">UNDERSTAND INDIA. ENGAGE THE WORLD.</span>
         </p>
         <button type="button" class="npfWidgetButton npfWidget-163d3e432dd1cc62ee589e07272304d0 hero-npf-trigger" tabindex="-1" aria-hidden="true">ENROLL NOW</button>
         <a href="#" class="btn-apply-now" id="heroApplyNowBtn" role="button">ENROLL NOW &nbsp;→</a>
-      </div>
+        </div>
 
       <div class="hero-center">
         <div class="hero-student-stack">
           <img src="Assets/Hero section/hero image.png" alt="Iconic monuments of India" class="hero-student-img">
+          </div>
         </div>
-      </div>
 
       <div class="hero-right">
         <div class="hero-enquiry-card">
           <h3>ENQUIRE HERE!</h3>
           <div class="hero-npf-scroll">
             <div class="npf_wgts" data-height="400px" data-w="163d3e432dd1cc62ee589e07272304d0"></div>
-          </div>
-        </div>
       </div>
-    </div>
-  </div>
+        </div>
+        </div>
+        </div>
+        </div>
 
   <div class="hero-bottom-bars">
     <div class="hero-info-bar">
@@ -676,16 +680,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-info-item"><strong>Batch Starts: March 2027</strong></div>
         <div class="hero-info-item"><strong>100% Online</strong></div>
         <div class="hero-info-item"><strong>Easy EMI Options</strong></div>
+        </div>
       </div>
-    </div>
   </div>
 </section>
 
-<div class="hero-scholarship-bar">
-  <p class="hero-scholarship-text">Naveen Jindal Scholarship for Public Leadership – Up to ₹1,75,000</p>
-</div>
+      <div class="hero-scholarship-bar">
+        <p class="hero-scholarship-text">Naveen Jindal Scholarship for Public Leadership – Up to ₹1,75,000</p>
+      </div>
 
-<section class="features-section section-global">
+  <section class="features-section section-global">
   <div class="container features-container">
     <h2 class="features-title">Programme Highlights</h2>
 
@@ -694,58 +698,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="features-slider-viewport" id="featuresSlider">
         <div class="features-slide">
-          <div class="feature-card">
+              <div class="feature-card">
             <img src="Assets/Programme Highlights/image 1.png" alt="Only Online MA in India Studies" class="card-img">
-            <div class="card-overlay">
+                <div class="card-overlay">
               <h3 class="card-title">Only Online MA in India Studies</h3>
               <p class="card-text">Pursue the only online Master's degree in India Studies offered by an Indian university.</p>
-            </div>
-          </div>
-          <div class="feature-card">
+                </div>
+              </div>
+              <div class="feature-card">
             <img src="Assets/Programme Highlights/image 2.png" alt="Interdisciplinary Knowledge" class="card-img">
-            <div class="card-overlay">
+                <div class="card-overlay">
               <h3 class="card-title">Interdisciplinary Knowledge</h3>
               <p class="card-text">Gain broad interdisciplinary knowledge of India's rich history, politics, economy, religions, philosophies, art and business landscape.</p>
-            </div>
-          </div>
-          <div class="feature-card">
+                </div>
+              </div>
+              <div class="feature-card">
             <img src="Assets/Programme Highlights/image 3.png" alt="World Ranked University" class="card-img">
-            <div class="card-overlay">
+                <div class="card-overlay">
               <h3 class="card-title">World Ranked University</h3>
               <p class="card-text">Study at JGU, a university ranked No. 1 in the world in the Times Higher Education Online Learning Rankings 2024.</p>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
         <div class="features-slide">
-          <div class="feature-card">
-            <img src="Assets/Programme Highlights/image 4.png" alt="100% Online Flexible" class="card-img">
-            <div class="card-overlay">
+              <div class="feature-card">
+                <img src="Assets/Programme Highlights/image 4.png" alt="100% Online Flexible" class="card-img">
+                <div class="card-overlay">
               <h3 class="card-title">100% Online Flexible</h3>
               <p class="card-text">Learn 100% online through interactive classes that you can join from anywhere, with a schedule that adapts to your needs.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <img src="Assets/Programme Highlights/image 5.png" alt="Leading Scholars" class="card-img">
-            <div class="card-overlay">
+                </div>
+              </div>
+              <div class="feature-card">
+                <img src="Assets/Programme Highlights/image 5.png" alt="Leading Scholars" class="card-img">
+                <div class="card-overlay">
               <h3 class="card-title">Leading Scholars</h3>
               <p class="card-text">Learn from leading scholars of India Studies drawn from diverse disciplines across O.P. Jindal Global University.</p>
-            </div>
-          </div>
-          <div class="feature-card">
-            <img src="Assets/Programme Highlights/image 6.png" alt="Global Cohort" class="card-img">
-            <div class="card-overlay">
+                </div>
+              </div>
+              <div class="feature-card">
+                <img src="Assets/Programme Highlights/image 6.png" alt="Global Cohort" class="card-img">
+                <div class="card-overlay">
               <h3 class="card-title">Global Cohort</h3>
               <p class="card-text">Join a cohort of global learners from diverse professional and cultural backgrounds.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
       <button class="features-arrow next" type="button" aria-label="Next feature">&#10095;</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="programme-overview-section section-global" id="about">
   <div class="container programme-overview-container">
@@ -755,22 +759,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="programme-overview-copy">
           <p class="programme-overview-text">
             The <strong>Master of Arts in India Studies</strong> offered by the
-            <strong>Jindal India Institute (JII)</strong> at <strong>O.P. Jindal Global University (JGU)</strong>
-            offers a unique opportunity to learn about the many facets of India. Over the course of one year, you'll
-            explore everything from India's politics, history, and philosophy to its business, technology, literature,
-            music, dance, and cinema. This comprehensive programme is designed for those who want to gain a deep and
-            wide understanding of India's diversity and dynamism while studying flexibly from anywhere in the world.
-            You'll learn from some of the best scholars in the field, all of whom bring an interdisciplinary approach
+              <strong>Jindal India Institute (JII)</strong> at <strong>O.P. Jindal Global University (JGU)</strong>
+              offers a unique opportunity to learn about the many facets of India. Over the course of one year, you'll
+              explore everything from India's politics, history, and philosophy to its business, technology, literature,
+              music, dance, and cinema. This comprehensive programme is designed for those who want to gain a deep and
+              wide understanding of India's diversity and dynamism while studying flexibly from anywhere in the world.
+              You'll learn from some of the best scholars in the field, all of whom bring an interdisciplinary approach
             to their teaching.
           </p>
           <p class="programme-overview-text">
             With <strong>100% online interactive learning</strong>, you can continue working,
-            balance your personal life, and avoid the costs of relocation, while accessing a rich repository of
-            learning resources. Join a global community of students and broaden your perspective on India and its role
+              balance your personal life, and avoid the costs of relocation, while accessing a rich repository of
+              learning resources. Join a global community of students and broaden your perspective on India and its role
             in shaping the world today.
           </p>
+          </div>
         </div>
-      </div>
 
       <div class="programme-overview-media">
         <figure class="programme-overview-campus">
@@ -784,10 +788,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <figure class="programme-overview-finance">
             <img src="Assets/about the programme/2.png" alt="India Collage" class="programme-overview-img">
           </figure>
-        </div>
       </div>
     </div>
-  </div>
+            </div>
+            </div>
 </section>
 
 <section class="programme-for-section section-global">
@@ -798,82 +802,82 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Diplomats, Politicians and Journalists.svg" alt="Diplomats" class="programme-for-icon-img">
-        </div>
+              </div>
         <h3 class="programme-for-card-title">Diplomats, Politicians and Journalists</h3>
       </article>
 
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Traders, Investors and Entrepreneurs.svg" alt="Traders" class="programme-for-icon-img">
-        </div>
+            </div>
         <h3 class="programme-for-card-title">Traders, Investors and Entrepreneurs</h3>
       </article>
 
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Aspirants of Yoga, Meditation and Indian Spirituality.svg" alt="Yoga" class="programme-for-icon-img">
-        </div>
+            </div>
         <h3 class="programme-for-card-title">Aspirants of Yoga, Meditation and Indian Spirituality</h3>
       </article>
 
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Members of the Indian Diaspora.svg" alt="Diaspora" class="programme-for-icon-img">
-        </div>
+            </div>
         <h3 class="programme-for-card-title">Members of the Indian Diaspora</h3>
       </article>
 
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Aspiring Scholars of India and South Asian Studies.svg" alt="Scholars" class="programme-for-icon-img">
-        </div>
+            </div>
         <h3 class="programme-for-card-title">Aspiring Scholars of India and South Asian Studies</h3>
       </article>
 
       <article class="programme-for-card">
         <div class="programme-for-icon" aria-hidden="true">
           <img src="Assets/who should apply/ICONS/Indophiles and Cultural Enthusiasts.svg" alt="Indophiles" class="programme-for-icon-img">
-        </div>
+              </div>
         <h3 class="programme-for-card-title">Indophiles and Cultural Enthusiasts</h3>
       </article>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="case-studies-section section-global">
-  <div class="container">
-    <h2 class="case-studies-title">Case Studies</h2>
+    <div class="container">
+      <h2 class="case-studies-title">Case Studies</h2>
     <div class="case-studies-grid">
       <article class="case-card">
         <div class="case-card-img"><img src="Assets/Case studies/Rectangle 249.png" alt="Cultural Heritage"></div>
-        <div class="case-body">
-          <h3 class="case-card-title">Cultural <span class="text-purple">Heritage</span><br>and Soft Power</h3>
+            <div class="case-body">
+              <h3 class="case-card-title">Cultural <span class="text-purple">Heritage</span><br>and Soft Power</h3>
           <p class="case-excerpt">This case study looks at how the arts function as a core component of cultural strength and national prosperity. India's rich musical traditions give the country a unique opportunity to project its intangible heritage at home and abroad. The study considers how public-private collaboration, supported by technological innovation, can help India use culture as a source of soft power.</p>
-        </div>
+            </div>
       </article>
       <article class="case-card">
         <div class="case-card-img"><img src="Assets/Case studies/Rectangle 250.png" alt="Ancient Traditions"></div>
-        <div class="case-body">
+            <div class="case-body">
           <h3 class="case-card-title">Ancient <span class="text-purple">Traditions</span> and Nation <span class="text-cyan">Building</span></h3>
           <p class="case-excerpt">This case study looks at how India's old music and dance traditions help shape national identity. These traditions are not only forms of entertainment; they carry ideas and values that have been passed down for centuries. By protecting and promoting them, a nation can stay connected to its roots and draw guidance from its past.</p>
-        </div>
+            </div>
       </article>
       <article class="case-card">
         <div class="case-card-img"><img src="Assets/Case studies/Rectangle 251.png" alt="Indian Diaspora"></div>
-        <div class="case-body">
+            <div class="case-body">
           <h3 class="case-card-title">From Past to <span class="text-purple">Present</span>: The Journey of <span class="text-cyan">the</span> Indian Diaspora</h3>
           <p class="case-excerpt">This case study traces the journey of Indians who moved to different parts of the world. It covers early traders, indentured workers during colonial rule, and today's professionals. The study shows how the diaspora influences the culture, economy, and politics of both India and their new countries.</p>
-        </div>
+            </div>
       </article>
       <article class="case-card">
         <div class="case-card-img"><img src="Assets/Case studies/Rectangle 252.png" alt="Deewar"></div>
-        <div class="case-body">
-          <h3 class="case-card-title">Deewar</h3>
+            <div class="case-body">
+              <h3 class="case-card-title">Deewar</h3>
           <p class="case-excerpt">This case study explores the thrilling Salim-Javed blockbuster hit from the 1970s. It connects the rise of the "Angry Young Man" archetype to the turbulent socio-political context of India during the Emergency period. The narrative allows us to empathize more deeply with the rise and fall of grey protagonists in Bollywood cinema.</p>
-        </div>
+            </div>
       </article>
-    </div>
-  </div>
+          </div>
+        </div>
 </section>
 
 
@@ -891,9 +895,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </p>
         <a href="#" class="btn know-more-cta font-weight-bold npfWidgetButton npfWidget-163d3e432dd1cc62ee589e07272304d0">DOWNLOAD BROCHURE</a>
       </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="tuition-section section-global" id="fees">
   <div class="tuition-panel tuition-panel--fees" id="tuitionPanel">
@@ -907,34 +911,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" class="tuition-tab" role="tab" id="tuitionTabBtnEligibility" aria-selected="false" aria-controls="tuitionTabEligibility" data-tab="eligibility">
           <span class="tuition-tab-text">Eligibility</span>
         </button>
-      </div>
+        </div>
 
       <div class="tuition-tab-panel active" id="tuitionTabFees" role="tabpanel" aria-labelledby="tuitionTabBtnFees">
         <ul class="tuition-check-list" style="margin-bottom:1rem;">
           <li>Total Tuition Fee: <strong>₹2,75,000</strong> (for Indian applicants). For international learners, tuition is payable in equivalent local currency at the time of payment.</li>
           <li>Indian students have the option to pay their tuition fees in multiple installments, as outlined below:</li>
-        </ul>
+            </ul>
         <div class="tuition-table-wrap">
           <table class="tuition-table">
-            <thead>
-              <tr>
-                <th>Fee</th>
-                <th>Amount</th>
-                <th>Due Date</th>
-              </tr>
-            </thead>
-            <tbody>
-                            <tr>
+                <thead>
+                  <tr>
+                    <th>Fee</th>
+                    <th>Amount</th>
+                    <th>Due Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
                 <td data-label="Fee">Registration Amount</td>
                 <td data-label="Amount">INR 25,000</td>
                 <td data-label="Due Date">Upon acceptance of Offer Letter</td>
-              </tr>
-                            <tr>
+                  </tr>
+                  <tr>
                 <td data-label="Fee">Instalment 1</td>
                 <td data-label="Amount">INR 1,25,000</td>
                 <td data-label="Due Date">Before Batch Commencement</td>
-              </tr>
-                            <tr>
+                  </tr>
+                  <tr>
                 <td data-label="Fee">Instalment 2</td>
                 <td data-label="Amount">INR 1,25,000</td>
                 <td data-label="Due Date">By 15th July 2027</td>
@@ -943,23 +947,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <td data-label="Fee">Total Tuition Fee</td>
                 <td data-label="Amount">INR 2,75,000</td>
                 <td data-label="Due Date"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
 <div class="payment-options-block">
               <div class="payment-options-header">
                 <p class="payment-options-eyebrow">Flexible Financing</p>
                 <h3 class="payment-options-title">Tuition Fee &amp; Payment Options</h3>
                 <p class="payment-options-intro">We offer flexible payment options to help learners manage their programme fees conveniently. Available payment options may vary depending on the programme and applicant category.</p>
-              </div>
+          </div>
 
               <section class="payment-audience" aria-labelledby="pay-indian-heading">
                 <div class="payment-audience-head">
                   <h4 class="payment-options-subtitle" id="pay-indian-heading">For Indian Nationals</h4>
                   <p class="payment-options-lead">You may choose from the following payment options:</p>
-                </div>
+        </div>
                 <div class="payment-cards payment-cards--two">
                   <article class="payment-card">
                     <span class="payment-card-tag">Option 1</span>
@@ -997,7 +1001,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul>
                       <li><strong>Registration Fee:</strong> Pay the applicable registration fee at the time of registration.</li>
                       <li><strong>Remaining Programme Fee:</strong> Pay the complete programme fee within 10 days from the date of registration.</li>
-                    </ul>
+            </ul>
                   </article>
                   <article class="payment-card">
                     <span class="payment-card-tag">Option 2</span>
@@ -1006,13 +1010,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul>
                       <li><strong>Registration Fee:</strong> Pay the applicable registration fee at the time of registration.</li>
                       <li><strong>Remaining Programme Fee:</strong> Pay the programme fee in two instalments, as per the applicable fee schedule mentioned for the programme.</li>
-                    </ul>
+            </ul>
                   </article>
                 </div>
               </section>
               <p class="payment-options-note">Begin your application at <a href="https://app.jodo.in/jgu" target="_blank" rel="noopener">app.jodo.in/jgu</a>. For assistance, contact JODO at <strong>99729 82193</strong> or <strong>96201 42953</strong>.</p>
-            </div>
-      </div>
+          </div>
+        </div>
 
       <div class="tuition-tab-panel" id="tuitionTabEligibility" role="tabpanel" aria-labelledby="tuitionTabBtnEligibility" hidden>
         <div class="tuition-eligibility-stack">
@@ -1039,159 +1043,159 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
       </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="testimonials-section section-global">
-  <div class="container">
+    <div class="container">
     <div class="testimonials-layout">
-      <div class="sc-left-col">
-        <h2 class="test-main-title">
-          <span>From <span class="text-purple">the</span></span><br>
-          <span>Student</span><br>
-          <span>Commun<span class="text-cyan">ity</span></span>
-        </h2>
-        <p class="test-subtitle">-Let's Hear From<br>Them Directly</p>
-      </div>
-      <div class="test-grid">
+        <div class="sc-left-col">
+          <h2 class="test-main-title">
+            <span class="test-title-line">From <span class="text-purple">the</span></span>
+            <span class="test-title-line">Student</span>
+            <span class="test-title-line">Commun<span class="text-cyan">ity</span></span>
+          </h2>
+          <p class="test-subtitle">Let’s Hear From Them Directly</p>
+        </div>
+            <div class="test-grid">
         <article class="test-card">
-          <div class="test-head">
+                <div class="test-head">
             <div class="test-avatar"><img src="Assets/ase.png" class="test-quote-img" alt="Quote"></div>
-            <div class="test-head-info">
-              <p class="test-name">Vinay Chawla</p>
-              <p class="test-role">Founder, Asian Centre For<br>Development Engineering</p>
-            </div>
-          </div>
-          <div class="test-text">
-            "I joined the first batch of the M.A. in India Studies at O.P. Jindal Global University after
-            exploring many options in India that could support my social start-up in development engineering. This
-            online programme fits perfectly and brings more than just theory.
-            <br>
-            In the first trimester, we explored Indian history, politics, and philosophies like Hinduism,
-            Buddhism, and Jainism through real conversations with great professors. They make complex ideas clear
-            and easy to relate to for anyone. My classmates are from all over the world and share many
-            perspectives.
-            <br>
-            The programme is helping me find the right business case and the exact social issue I want to focus on
-            for my start-up. If you want to connect academic study with real impact, especially future social
-            entrepreneurs, this programme stands out."
-          </div>
+                  <div class="test-head-info">
+                    <p class="test-name">Vinay Chawla</p>
+                    <p class="test-role">Founder, Asian Centre For<br>Development Engineering</p>
+                  </div>
+                </div>
+                <div class="test-text">
+                  "I joined the first batch of the M.A. in India Studies at O.P. Jindal Global University after
+                  exploring many options in India that could support my social start-up in development engineering. This
+                  online programme fits perfectly and brings more than just theory.
+                  <br>
+                  In the first trimester, we explored Indian history, politics, and philosophies like Hinduism,
+                  Buddhism, and Jainism through real conversations with great professors. They make complex ideas clear
+                  and easy to relate to for anyone. My classmates are from all over the world and share many
+                  perspectives.
+                  <br>
+                  The programme is helping me find the right business case and the exact social issue I want to focus on
+                  for my start-up. If you want to connect academic study with real impact, especially future social
+                  entrepreneurs, this programme stands out."
+                </div>
         </article>
         <article class="test-card featured">
-          <div class="test-head">
+                <div class="test-head">
             <div class="test-avatar"><img src="Assets/ase.png" class="test-quote-img" alt="Quote"></div>
-            <div class="test-head-info">
-              <p class="test-name">Koji Sato</p>
-              <p class="test-role">Director General, The Japan<br>Foundation, New Delhi Office</p>
-            </div>
-          </div>
-          <div class="test-text">
-            "I have been associated with India for a long time and I am currently living and working in Delhi.
-            With more than eight years of experience here, I felt I knew India well...but I wanted to deepen my
-            understanding of this wonderful country and its culture.
-            <br>
-            When I discovered the M.A. in India Studies programme online, I knew it was the right course for me.
-            So far, I have taken three courses and one of them also focused on philosophy and religion. All have
-            been excellent, but the philosophy and religion course, in particular, made me feel like I was
-            reaching the very core of the Indian heart. The programme's online format is a huge advantage. The
-            video lectures are well-designed, and I can study at my own pace, something very valuable for
-            professionals like me. Some assessments were challenging, but that was also the fun part.
-            <br>
-            Returning to academics after 20-30 years, writing a short thesis was truly exciting and has motivated
-            me to keep learning and developing. Whether you are a student, job seeker, or professional anywhere in
-            the world, this programme offers a concentrated, one-year journey that immerses you deeply in India's
-            history, culture, and much more. I strongly recommend it to anyone interested."
-          </div>
+                  <div class="test-head-info">
+                    <p class="test-name">Koji Sato</p>
+                    <p class="test-role">Director General, The Japan<br>Foundation, New Delhi Office</p>
+                  </div>
+                </div>
+                <div class="test-text">
+                  "I have been associated with India for a long time and I am currently living and working in Delhi.
+                  With more than eight years of experience here, I felt I knew India well...but I wanted to deepen my
+                  understanding of this wonderful country and its culture.
+                  <br>
+                  When I discovered the M.A. in India Studies programme online, I knew it was the right course for me.
+                  So far, I have taken three courses and one of them also focused on philosophy and religion. All have
+                  been excellent, but the philosophy and religion course, in particular, made me feel like I was
+                  reaching the very core of the Indian heart. The programme's online format is a huge advantage. The
+                  video lectures are well-designed, and I can study at my own pace, something very valuable for
+                  professionals like me. Some assessments were challenging, but that was also the fun part.
+                  <br>
+                  Returning to academics after 20-30 years, writing a short thesis was truly exciting and has motivated
+                  me to keep learning and developing. Whether you are a student, job seeker, or professional anywhere in
+                  the world, this programme offers a concentrated, one-year journey that immerses you deeply in India's
+                  history, culture, and much more. I strongly recommend it to anyone interested."
+                </div>
         </article>
         <article class="test-card">
-          <div class="test-head">
+                <div class="test-head">
             <div class="test-avatar"><img src="Assets/ase.png" class="test-quote-img" alt="Quote"></div>
-            <div class="test-head-info">
-              <p class="test-name">Rajni P.</p>
-              <p class="test-role">Student, O.P. Jindal Global University</p>
-            </div>
-          </div>
-          <div class="test-text">
-            "The M.A. in India Studies programme at the O.P. Jindal Global University has been such a unique and
-            eye-opening experience for me. I joined the programme wanting to learn more about India's history,
-            culture, philosophy, politics, and international relations.
-            <br>
-            The faculty are greatly knowledgeable, and their ability to make complex subjects accessible has made
-            the classes both engaging and inspiring. I also greatly value the supportive environment created by
-            the staff. The vibrant exchange of perspectives within the cohort, by interacting with classmates from
-            across the globe, has broadened my own outlook about India and made the journey even more rewarding.
-            <br>
-            This programme has strengthened my understanding of India's past, present, and future, and I would
-            highly recommend it to anyone with a genuine curiosity about India."
-          </div>
+                  <div class="test-head-info">
+                    <p class="test-name">Rajni P.</p>
+                    <p class="test-role">Student, O.P. Jindal Global University</p>
+                  </div>
+                </div>
+                <div class="test-text">
+                  "The M.A. in India Studies programme at the O.P. Jindal Global University has been such a unique and
+                  eye-opening experience for me. I joined the programme wanting to learn more about India's history,
+                  culture, philosophy, politics, and international relations.
+                  <br>
+                  The faculty are greatly knowledgeable, and their ability to make complex subjects accessible has made
+                  the classes both engaging and inspiring. I also greatly value the supportive environment created by
+                  the staff. The vibrant exchange of perspectives within the cohort, by interacting with classmates from
+                  across the globe, has broadened my own outlook about India and made the journey even more rewarding.
+                  <br>
+                  This programme has strengthened my understanding of India's past, present, and future, and I would
+                  highly recommend it to anyone with a genuine curiosity about India."
+                </div>
         </article>
         <article class="test-card">
-          <div class="test-head">
+                <div class="test-head">
             <div class="test-avatar"><img src="Assets/ase.png" class="test-quote-img" alt="Quote"></div>
-            <div class="test-head-info">
-              <p class="test-name">Muiris Ó Cléidigh</p>
-              <p class="test-role">Policy Analyst, European Union</p>
-            </div>
-          </div>
-          <div class="test-text">
-            "As someone who works on South Asia policy, this programme was invaluable. The faculty brought
-            nuanced, real-world perspectives that went far beyond textbook knowledge, and the peer discussions
-            were genuinely enriching.
-            <br>
-            The flexibility to balance my active workload with absolute academic rigour made it the ideal choice
-            for professional advancement. I strongly recommend this specialized curriculum to other global policy
-            analysts."
-          </div>
+                  <div class="test-head-info">
+                    <p class="test-name">Muiris Ó Cléidigh</p>
+                    <p class="test-role">Policy Analyst, European Union</p>
+                  </div>
+                </div>
+                <div class="test-text">
+                  "As someone who works on South Asia policy, this programme was invaluable. The faculty brought
+                  nuanced, real-world perspectives that went far beyond textbook knowledge, and the peer discussions
+                  were genuinely enriching.
+                  <br>
+                  The flexibility to balance my active workload with absolute academic rigour made it the ideal choice
+                  for professional advancement. I strongly recommend this specialized curriculum to other global policy
+                  analysts."
+                </div>
         </article>
         <article class="test-card">
-          <div class="test-head">
+                <div class="test-head">
             <div class="test-avatar"><img src="Assets/ase.png" class="test-quote-img" alt="Quote"></div>
-            <div class="test-head-info">
-              <p class="test-name">Michael Barnaby Levin</p>
-              <p class="test-role">Higher Education Analyst, Senior Advisor</p>
-            </div>
-          </div>
-          <div class="test-text">
-            "I am confident that the M.A. in India Studies at JGU is among the most comprehensive and
-            well-designed programmes for anyone seeking to truly understand India — its past, its present, and its
-            extraordinary future.
-            <br>
-            The masterclass format, paired with the stellar quality of global lectures and deeply engaging
-            discussions, provides students with a world-class educational experience. It is a defining milestone
-            for anyone curious about South Asia."
-          </div>
+                  <div class="test-head-info">
+                    <p class="test-name">Michael Barnaby Levin</p>
+                    <p class="test-role">Higher Education Analyst, Senior Advisor</p>
+                  </div>
+                </div>
+                <div class="test-text">
+                  "I am confident that the M.A. in India Studies at JGU is among the most comprehensive and
+                  well-designed programmes for anyone seeking to truly understand India — its past, its present, and its
+                  extraordinary future.
+                  <br>
+                  The masterclass format, paired with the stellar quality of global lectures and deeply engaging
+                  discussions, provides students with a world-class educational experience. It is a defining milestone
+                  for anyone curious about South Asia."
+                </div>
         </article>
+              </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="video-section section-global">
-  <div class="container">
+    <div class="container">
     <div class="video-box" data-youtube="https://www.youtube.com/watch?v=Ia_iKRuOuxY&amp;list=PL_7V_ZbBe0vrOUUaWuN6_p5O9mWDpYAPV" style="cursor:pointer;" id="programmeVideoBox">
-      <img src="Assets/video/Group 79.png" class="video-bg" alt="Know About JII &amp; M.A. India Studies">
-      <div class="play-btn"><span>▶</span></div>
-      <div class="video-text">Know About JII &amp; M.A. India Studies</div>
+        <img src="Assets/video/Group 79.png" class="video-bg" alt="Know About JII &amp; M.A. India Studies">
+        <div class="play-btn"><span>▶</span></div>
+        <div class="video-text">Know About JII &amp; M.A. India Studies</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="jii-section section-global">
-  <div class="container">
+  <section class="jii-section section-global">
+    <div class="container">
     <div class="jii-inner">
       <h2 class="jii-title">The Jindal India<br>Institute</h2>
-      <div class="jii-body">
-        <p>The <strong>Jindal India Institute (JII)</strong> is the <strong>flagship think-tank initiative</strong>
-          of the O.P. Jindal Global University (JGU), aimed at promoting a comprehensive and contextual
-          understanding of India around the world. India's rising influence in the world has created an
-          unprecedented demand for a richer, more textured, and interdisciplinary understanding of its complexities
-          – historical, cultural, political, economic, and philosophical.</p>
-        <p>JII responds to this demand through a wide range of initiatives, including training programmes for
-          foreign diplomats, research projects, expert-led public events, and a pioneering <strong>Master of Arts
-            (M.A.) in India Studies</strong>, the first of its kind in the online domain, and the only such
-          programme in India.</p>
-      </div>
+          <div class="jii-body">
+            <p>The <strong>Jindal India Institute (JII)</strong> is the <strong>flagship think-tank initiative</strong>
+              of the O.P. Jindal Global University (JGU), aimed at promoting a comprehensive and contextual
+              understanding of India around the world. India's rising influence in the world has created an
+              unprecedented demand for a richer, more textured, and interdisciplinary understanding of its complexities
+              – historical, cultural, political, economic, and philosophical.</p>
+            <p>JII responds to this demand through a wide range of initiatives, including training programmes for
+              foreign diplomats, research projects, expert-led public events, and a pioneering <strong>Master of Arts
+                (M.A.) in India Studies</strong>, the first of its kind in the online domain, and the only such
+              programme in India.</p>
+          </div>
     </div>
   </div>
 </section>
@@ -1281,10 +1285,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h5 class="faculty-name">Prof. (Dr.) Sugandha Nagpal</h5>
           <p class="faculty-role">Associate Professor, Jindal School of International Affairs<br>&amp; Fellow, Jindal India Institute</p>
         </article>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="recognition-section section-global">
   <img class="recognition-bg" src="Assets/Recognitions/bg picture.png" alt="" aria-hidden="true">
@@ -1293,13 +1297,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="recognition-grid" id="recognitionGrid">
       <div class="rec-card rec-card-small">
         <img src="Assets/Recognitions/2.png" alt="Top 150 Under 50 Globally – QS 2022">
-      </div>
+    </div>
       <div class="rec-card rec-card-small">
         <img src="Assets/Recognitions/1.png" alt="Institution of Eminence">
-      </div>
+          </div>
       <div class="rec-card rec-card-main">
         <img src="Assets/Recognitions/3.png" alt="No.1 Private University – QS 2021-2023">
-      </div>
+        </div>
       <div class="rec-card rec-card-small">
         <img src="Assets/Recognitions/4.png" alt="No.1 Globally for Online Learning – THE 2024">
       </div>
@@ -1308,14 +1312,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="recognition-dots" id="recognitionDots" role="tablist" aria-label="Recognition slides"></div>
-  </div>
-</section>
+    </div>
+  </section>
 
 <section class="faq-section section-global" id="faq">
   <div class="container faq-container">
     <h2 class="faq-title">
       <span class="faq-title-main">Frequently Asked Questions</span><span class="faq-title-sub"> (FAQs)</span>
-    </h2>
+      </h2>
 
     <div class="faq-grid">
       <div class="faq-col">
@@ -1323,9 +1327,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button" type="button" data-toggle="collapse" data-target="#faq1">
-                Is it possible to work while enrolled in the programme?
-              </button>
-            </h2>
+                  Is it possible to work while enrolled in the programme?
+                </button>
+              </h2>
             <div id="faq1" class="collapse show" data-parent="#faqLeft">
               <div class="accordion-body">
                 Yes. The programme is 100% online and designed for working professionals. All lectures are recorded and accessible at any time, allowing you to learn at your own pace and schedule studies around your professional commitments.
@@ -1335,38 +1339,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq2">
-                What is unique about this programme?
-              </button>
-            </h2>
+                  What is unique about this programme?
+                </button>
+              </h2>
             <div id="faq2" class="collapse" data-parent="#faqLeft">
               <div class="accordion-body">
                 This is India's only online M.A. dedicated exclusively to India Studies, offered by JGU — India's #1 ranked private university. The curriculum uniquely combines political history, philosophy, economy, culture, cinema, and spirituality in a single interdisciplinary degree.
+                </div>
               </div>
             </div>
-          </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq3">
-                What learning resources are available?
-              </button>
-            </h2>
+                  What learning resources are available?
+                </button>
+              </h2>
             <div id="faq3" class="collapse" data-parent="#faqLeft">
               <div class="accordion-body">
                 Students have access to JGU's digital library, recorded video lectures, live webinars with faculty and guest experts, discussion forums, curated reading materials, and 24×7 academic support services throughout the programme.
               </div>
             </div>
           </div>
+          </div>
         </div>
-      </div>
 
       <div class="faq-col">
         <div class="accordion faq-accordion" id="faqRight">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq4">
-                What career opportunities does this programme prepare me for?
-              </button>
-            </h2>
+                  What career opportunities does this programme prepare me for?
+                </button>
+              </h2>
             <div id="faq4" class="collapse" data-parent="#faqRight">
               <div class="accordion-body">
                 Graduates are prepared for careers in academia, diplomacy and foreign policy, journalism, cultural consultancy, business development with India-focused organisations, think tanks, NGOs, and international development agencies.
@@ -1376,20 +1380,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#faq5">
-                Is there an entrance test?
-              </button>
-            </h2>
+                  Is there an entrance test?
+                </button>
+              </h2>
             <div id="faq5" class="collapse" data-parent="#faqRight">
               <div class="accordion-body">
                 There is no entrance examination. Admission is based on your Statement of Purpose, a Short Essay, and document review. Applications are accepted on a rolling basis, so early application is encouraged.
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <section class="enquire-section section-global" id="enquire">
   <div class="container enquire-container">
@@ -1397,22 +1401,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="enquire-card">
       <div class="enquire-form-panel">
         <div class="enquire-npf-scroll">
-          <div class="npf_wgts" data-height="400px" data-w="163d3e432dd1cc62ee589e07272304d0"></div>
-        </div>
-      </div>
+            <div class="npf_wgts" data-height="400px" data-w="163d3e432dd1cc62ee589e07272304d0"></div>
+          </div>
+          </div>
       <div class="enquire-info-panel">
         <div class="info-section">
           <h2>Let's connect and shape your path at JGU!</h2>
           <p class="info-text">Reach out to know more about programmes, admissions, and opportunities.</p>
         </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 <script>
   (function () {
     var box = document.getElementById('programmeVideoBox');
@@ -1424,7 +1428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   })();
 </script>
 
-<script type="text/javascript">var s=document.createElement("script"); s.type="text/javascript"; s.async=true; s.src="https://widgets.in8.nopaperforms.com/emwgts.js"; document.body.appendChild(s);</script>
+  <script type="text/javascript">var s=document.createElement("script"); s.type="text/javascript"; s.async=true; s.src="https://widgets.in8.nopaperforms.com/emwgts.js"; document.body.appendChild(s);</script>
 <script src="https://in8cdn.npfs.co/js/widget/npfwpopup.js"></script>
 <script>let npfW163d3e432dd1cc62ee589e07272304d0=new NpfWidgetsInit({'widgetId':'163d3e432dd1cc62ee589e07272304d0','baseurl':'widgets.in8.nopaperforms.com','formTitle':'Enquiry Form','titleColor':'#FF0033','backgroundColor':'#ddd','iframeHeight':'500px','buttonbgColor':'#4c79dc','buttonTextColor':'#FFF'});</script>
 

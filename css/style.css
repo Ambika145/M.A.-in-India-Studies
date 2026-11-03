@@ -36,15 +36,15 @@
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    color: #333;
-    overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  overflow-x: hidden;
     background: #fff;
 }
 
@@ -172,8 +172,8 @@ section {
 
   .hero-header {
     flex: 0 0 auto;
-    flex-shrink: 0;
-  }
+  flex-shrink: 0;
+}
 
   .hero-main {
     display: grid;
@@ -188,7 +188,7 @@ section {
   }
 
   .hero-center {
-    display: flex;
+  display: flex;
     align-items: flex-end;
     justify-content: center;
     align-self: end;
@@ -329,7 +329,7 @@ section {
     visibility: visible;
     opacity: 1;
     margin-top: 0;
-    position: relative;
+  position: relative;
     z-index: 2;
   }
 }
@@ -1099,13 +1099,13 @@ section {
 
   .hero-left {
     align-self: center;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
     justify-content: center;
     padding: 0.75rem 0.75rem 0.75rem 1rem;
     overflow: visible;
     margin-top: 0;
-    align-items: flex-start;
+  align-items: flex-start;
   }
 
   .hero-title {
@@ -1227,7 +1227,7 @@ section {
 
   .hero-left {
     align-self: center;
-    display: flex;
+  display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 0.75rem 0.75rem;
@@ -1237,7 +1237,7 @@ section {
 
   .hero-title {
     font-size: clamp(1.5rem, 2.6vw, 2.1rem);
-    width: 100%;
+  width: 100%;
     max-width: 100%;
     padding: 0.12em 0.15em 0.06em 0;
     line-height: 1.2;
@@ -1247,7 +1247,7 @@ section {
   .hero-student-img {
     max-height: 100%;
     max-width: 100%;
-    object-fit: contain;
+  object-fit: contain;
     object-position: bottom center;
     margin: 0;
     transform: none;
@@ -1286,7 +1286,7 @@ section {
     gap: 20px;
     min-height: auto;
     padding-bottom: 1.5rem;
-    margin-bottom: 0;
+  margin-bottom: 0;
   }
 
   .hero-left {
@@ -1369,8 +1369,8 @@ section {
     width: 100%;
     max-height: min(34rem, 82vh);
     min-height: 22rem;
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
     overflow: hidden;
   }
 
@@ -1407,14 +1407,14 @@ section {
   .hero-info-inner {
     flex-wrap: wrap;
     gap: 0;
-    justify-content: center;
-  }
+  justify-content: center;
+}
 
   .hero-info-item {
     flex: 1 1 33.333%;
     border-right: 1px solid rgba(255, 255, 255, 0.22);
     font-size: clamp(0.75rem, 2.4vw, 0.9rem);
-    font-weight: 800;
+  font-weight: 800;
     color: #fff;
     padding: 0.5rem 0.4rem;
   }
@@ -1465,10 +1465,10 @@ section {
     right: 0;
     bottom: 0;
     top: auto;
-    width: 100%;
+  width: 100%;
     height: 125%;
     min-height: 100%;
-    object-fit: cover;
+  object-fit: cover;
     object-position: center bottom;
   }
 
@@ -1629,7 +1629,7 @@ section {
   .btn-enroll {
     font-size: 18px;
     padding: 16px 44px;
-    border-radius: 20px;
+  border-radius: 20px;
     width: 100%;
     max-width: 320px;
   }
@@ -1693,7 +1693,7 @@ section {
 }
 
 .feature-card {
-    position: relative;
+  position: relative;
     border-radius: 25px;
     overflow: hidden;
     height: 400px;
@@ -2204,7 +2204,7 @@ section {
   }
 
   .programme-overview-inner {
-    display: flex;
+  display: flex;
     flex-direction: column;
     gap: 22px;
   }
@@ -2628,8 +2628,8 @@ section {
     gap: 4px;
     padding: 4px;
     max-width: 100%;
-    margin-bottom: 24px;
-  }
+  margin-bottom: 24px;
+}
 
   .tuition-tab {
     border-radius: 999px;
@@ -2656,7 +2656,7 @@ section {
   .tuition-table th,
   .tuition-table td {
     display: block;
-    width: 100%;
+  width: 100%;
     max-width: 100%;
     box-sizing: border-box;
   }
@@ -2712,7 +2712,7 @@ section {
   .tuition-table td::before {
     content: attr(data-label);
     color: #ffe66d;
-    font-weight: 700;
+  font-weight: 700;
     font-size: 0.82rem;
     line-height: 1.35;
   }
@@ -2928,8 +2928,8 @@ section {
   .why-choose-body {
     min-height: auto;
     padding: 28px 0;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
     justify-content: center;
   }
 
@@ -3218,8 +3218,8 @@ section {
 
   .career-pathways-panel {
     border-radius: 24px;
-    min-height: auto;
-  }
+  min-height: auto;
+}
 
   .career-pathways-inner {
     padding: 28px 18px;
@@ -3592,7 +3592,7 @@ section {
 
 .know-more-media {
   min-width: 0;
-  width: 100%;
+    width: 100%;
 }
 
 .know-more-img {
@@ -3859,7 +3859,7 @@ section {
 
   .faculty-member {
     flex: 0 0 100%;
-    width: 100%;
+  width: 100%;
     min-width: 100%;
     max-width: 100%;
     scroll-snap-align: start;
@@ -4535,12 +4535,12 @@ section {
   color: #fff;
   padding: 0;
   display: flex;
-  flex-direction: column;
+    flex-direction: column;
   justify-content: flex-start;
 }
 
 .enquire-info-panel .info-section {
-  text-align: center;
+    text-align: center;
   align-items: center;
 }
 
@@ -4574,7 +4574,7 @@ section {
         }
 
         .contact-icon svg {
-            width: 100%;
+    width: 100%;
             height: 100%;
         }
 
@@ -4779,8 +4779,8 @@ section {
 
 img, video, iframe {
   max-width: 100%;
-  height: auto;
-}
+    height: auto;
+  }
 
 
 /* ===== responsive (merged) ===== */
@@ -6789,7 +6789,7 @@ iframe {
 .recognition-container {
   position: relative !important;
   z-index: 2 !important;
-  max-width: 100% !important;
+    max-width: 100% !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding-left: 12px !important;
@@ -6936,6 +6936,43 @@ iframe {
   width: auto;
   object-fit: contain;
 }
+
+/* Desktop / 100%: keep monument hero large enough (landscape asset) */
+@media screen and (min-width: 992px) {
+  .hero-section .hero-center {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    min-height: 0 !important;
+  }
+  .hero-section .hero-student-stack {
+    width: 100% !important;
+    height: 100% !important;
+    max-height: 100% !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  .hero-section .hero-student-img {
+    /* Wide panorama asset — cover so it fills the hero column at 100% */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: min(62vh, 30rem) !important;
+    max-height: min(62vh, 30rem) !important;
+    object-fit: cover !important;
+    object-position: center 35% !important;
+  }
+  .case-studies-grid {
+    align-items: stretch;
+  }
+  .case-card {
+    height: 100%;
+  }
+  .case-card-img img {
+    height: 220px;
+  }
+}
 .header-logo-divider {
   width: 1px;
   height: 3.5rem;
@@ -6993,21 +7030,38 @@ iframe {
 }
 .testimonials-layout {
   display: grid;
-  grid-template-columns: minmax(180px, 280px) 1fr;
+  grid-template-columns: minmax(200px, 280px) 1fr;
   gap: 2rem;
   align-items: start;
   max-width: 1100px;
   margin: 0 auto;
 }
+.sc-left-col {
+  padding-top: 0.25rem;
+}
 .test-main-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1em;
   font-weight: 800;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   color: #1a237e;
-  line-height: 1.2;
+  line-height: 1.15;
+  margin: 0;
+}
+.test-title-line {
+  display: block;
+  white-space: nowrap;
 }
 .test-main-title .text-purple { color: #7b1fa2; }
 .test-main-title .text-cyan { color: #00acc1; }
-.test-subtitle { color: #555; margin-top: 0.75rem; font-weight: 600; }
+.test-subtitle {
+  color: #555;
+  margin-top: 0.85rem;
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  line-height: 1.4;
+}
 .test-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -7018,28 +7072,70 @@ iframe {
   border-radius: 1rem;
   padding: 1.25rem 1.4rem;
   box-shadow: 0 8px 24px rgba(26, 35, 126, 0.06);
+  min-width: 0;
 }
 .test-card.featured { background: linear-gradient(135deg, #f3e5f5 0%, #e0f7fa 100%); }
 .test-head { display: flex; gap: 0.85rem; align-items: center; margin-bottom: 0.75rem; }
-.test-quote-img { width: 42px; height: 42px; object-fit: contain; }
+.test-quote-img { width: 42px; height: 42px; object-fit: contain; flex-shrink: 0; }
 .test-name { font-weight: 800; color: #1a237e; margin: 0; }
 .test-role { font-size: 0.85rem; color: #555; margin: 0; }
 .test-text { font-size: 0.92rem; line-height: 1.55; color: #333; }
-@media (max-width: 900px) {
+/* Desktop / 100%: two-column cards so the block doesn’t collapse into a long single stack */
+@media screen and (min-width: 992px) {
+  .testimonials-layout {
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    gap: 2.25rem;
+    align-items: start;
+  }
+  .sc-left-col {
+    position: sticky;
+    top: 1.5rem;
+  }
+  .test-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+  .test-card.featured {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 991px) {
   .testimonials-layout { grid-template-columns: 1fr; }
+  .sc-left-col { position: static; }
 }
 
 .jii-section {
   position: relative;
   padding: 4rem 1.25rem;
-  background: url("./Assets/Jindal India Institute/bg frame (3).png") center/cover no-repeat;
+  background: url("./Assets/Jindal India Institute/bg frame (3).png") right center / cover no-repeat;
   color: #fff;
   min-height: 420px;
+  display: flex;
+  align-items: center;
 }
 .jii-section::before {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(26,35,126,0.88) 0%, rgba(74,20,140,0.55) 55%, rgba(0,0,0,0.25) 100%);
+  background: linear-gradient(90deg, rgba(18,24,92,0.92) 0%, rgba(52,14,102,0.75) 48%, rgba(0,0,0,0.28) 100%);
+  z-index: 0;
+}
+@media screen and (min-width: 992px) {
+  .jii-section {
+    min-height: 520px;
+    padding: 4.5rem 1.5rem;
+  }
+  .jii-inner {
+    max-width: 580px;
+    padding: 0.5rem 0;
+  }
+  .jii-title {
+    font-size: clamp(2rem, 2.5vw, 2.55rem);
+    line-height: 1.2;
+  }
+  .jii-body p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
 }
 @media screen and (max-width: 991px) {
   /* Darker overlay on tablet/mobile so white copy stays readable over the photo */
