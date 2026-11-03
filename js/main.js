@@ -1,156 +1,252 @@
-$(document).ready(function () {
+/**
+ * M.A. India Studies landing page interactions
+ * Kept minimal to avoid conflicts with NPF registration widgets.
+ * Does not bind to form inputs / validation.
+ */
+(function () {
+  'use strict';
 
-  /* ── PROGRAMME HIGHLIGHTS SLIDER ── */
-  const track = $('.slider-track');
-  const items = $('.slider-item');
-  let current = 0;
+  function initFeaturesSlider() {
+    var viewport = document.getElementById('featuresSlider');
+    var prevBtn = document.querySelector('.features-arrow.prev');
+    var nextBtn = document.querySelector('.features-arrow.next');
+    if (!viewport || !prevBtn || !nextBtn) return;
 
-  function getVisible() {
-    if (window.innerWidth <= 768) return 1;
-    if (window.innerWidth < 1024) return 2;
-    return 3;
-  }
+    var currentIndex = 0;
 
-  function updateSlider() {
-    const visibleCount = getVisible();
-    const wrapperWidth = $('.slider-wrapper').width() || ($(window).width() - 80);
-    const itemWidth = Math.floor(wrapperWidth / visibleCount);
-    items.css({ 'min-width': itemWidth + 'px', 'max-width': itemWidth + 'px', 'width': itemWidth + 'px' });
-    track.css('transform', 'translateX(-' + (current * itemWidth) + 'px)');
-  }
-
-  $('.right-btn').on('click', function () {
-    const visibleCount = getVisible();
-    if (current < items.length - visibleCount) { current++; updateSlider(); }
-  });
-
-  $('.left-btn').on('click', function () {
-    if (current > 0) { current--; updateSlider(); }
-  });
-
-  $(window).on('resize', function () { current = 0; tIdx = 0; updateSlider(); updateFaculty(); updateTest(); updateRecognitions(); });
-  updateSlider();
-  /* Re-run after images load so widths are final */
-  $(window).on('load', function () { current = 0; updateSlider(); updateTest(); });
-
-  /* ── RECOGNITIONS CAROUSEL FOR MOBILE ── */
-  const $reconBadge = $('.recognitions-badges');
-  function updateRecognitions() {
-    if (window.innerWidth <= 768) {
-      if (!$reconBadge.hasClass('owl-carousel')) {
-        $reconBadge.addClass('owl-carousel owl-theme').owlCarousel({
-          items: 1,
-          margin: 20,
-          loop: true,
-          nav: false,
-          dots: true,
-          autoplay: true,
-          autoplayTimeout: 3500
-        });
-      }
-    } else {
-      if ($reconBadge.hasClass('owl-carousel')) {
-        $reconBadge.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-theme');
-      }
+    function isMobileFeatures() {
+      return window.matchMedia('(max-width: 767px)').matches;
     }
-  }
-  updateRecognitions();
 
-  /* ── FACULTY CAROUSEL ── */
-  const facultyGrid = document.querySelector('.faculty-grid');
-  const facultyCards = document.querySelectorAll('.faculty-card');
-  const prevBtn = document.querySelector('.faculty-prev-btn');
-  const nextBtn = document.querySelector('.faculty-next-btn');
-  let fIdx = 0;
+    function getItems() {
+      if (isMobileFeatures()) {
+        return Array.prototype.slice.call(viewport.querySelectorAll('.feature-card'));
+      }
+      return Array.prototype.slice.call(viewport.querySelectorAll('.features-slide'));
+    }
 
-  function updateFaculty() {
-    if (!facultyGrid || !facultyCards.length) return;
-    const gap = parseFloat(window.getComputedStyle(facultyGrid).gap) || 0;
-    const w = facultyCards[0].offsetWidth + gap;
-    // Clamp the shift so the grid never scrolls past its last card
-    // (otherwise the final step overshoots and shows an empty gap on the right)
-    const maxShift = Math.max(0, facultyGrid.scrollWidth - facultyGrid.parentElement.clientWidth);
-    const shift = Math.min(fIdx * w, maxShift);
-    facultyGrid.style.transform = 'translateX(-' + shift + 'px)';
+    function updateArrows() {
+      var items = getItems();
+      prevBtn.disabled = currentIndex <= 0;
+      nextBtn.disabled = currentIndex >= items.length - 1;
+    }
+
+    function goToSlide(index) {
+      var items = getItems();
+      if (!items.length) return;
+      currentIndex = Math.max(0, Math.min(index, items.length - 1));
+      var target = items[currentIndex];
+      if (target) {
+        viewport.scrollTo({ left: target.offsetLeft, behavior: 'smooth' });
+      }
+      updateArrows();
+    }
+
+    function syncIndexFromScroll() {
+      var items = getItems();
+      if (!items.length) return;
+      var scrollLeft = viewport.scrollLeft;
+      var closestIndex = 0;
+      var smallestDiff = Infinity;
+      items.forEach(function (item, index) {
+        var diff = Math.abs(item.offsetLeft - scrollLeft);
+        if (diff < smallestDiff) {
+          smallestDiff = diff;
+          closestIndex = index;
+        }
+      });
+      currentIndex = closestIndex;
+      updateArrows();
+    }
+
+    prevBtn.addEventListener('click', function () { goToSlide(currentIndex - 1); });
+    nextBtn.addEventListener('click', function () { goToSlide(currentIndex + 1); });
+    viewport.addEventListener('scroll', syncIndexFromScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      currentIndex = 0;
+      goToSlide(0);
+    });
+    goToSlide(0);
   }
 
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => { if (fIdx > 0) { fIdx--; updateFaculty(); } });
+  function initFacultySlider() {
+    var track = document.getElementById('facultyTrack');
+    var prevBtn = document.querySelector('.faculty-arrow.prev');
+    var nextBtn = document.querySelector('.faculty-arrow.next');
+    if (!track || !prevBtn || !nextBtn) return;
+
+    function getScrollAmount() {
+      var member = track.querySelector('.faculty-member');
+      if (!member) return 256;
+      var styles = window.getComputedStyle(track);
+      var gap = parseFloat(styles.columnGap || styles.gap) || 0;
+      return member.offsetWidth + gap;
+    }
+
+    function updateArrows() {
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      prevBtn.disabled = track.scrollLeft <= 4;
+      nextBtn.disabled = track.scrollLeft >= maxScroll - 4 || maxScroll <= 0;
+    }
+
+    function scrollFaculty(direction) {
+      var amount = getScrollAmount();
+      var nextLeft = Math.round(track.scrollLeft / amount) * amount + direction * amount;
+      track.scrollTo({ left: Math.max(0, nextLeft), behavior: 'smooth' });
+    }
+
+    prevBtn.addEventListener('click', function () { scrollFaculty(-1); });
+    nextBtn.addEventListener('click', function () { scrollFaculty(1); });
+    track.addEventListener('scroll', updateArrows, { passive: true });
+    window.addEventListener('resize', updateArrows);
+    updateArrows();
   }
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      if (!facultyGrid) return;
-      const gap = parseFloat(window.getComputedStyle(facultyGrid).gap) || 0;
-      const w = facultyCards[0].offsetWidth + gap;
-      const visible = Math.floor(facultyGrid.parentElement.offsetWidth / w) || 1;
-      const maxIdx = Math.max(0, facultyCards.length - visible);
-      if (fIdx < maxIdx) { fIdx++; updateFaculty(); }
+
+  function initSkillsDots() {
+    var viewport = document.querySelector('.skills-carousel-viewport');
+    var track = document.getElementById('skillsCarouselTrack');
+    var dotsContainer = document.getElementById('skillsDots');
+    if (!viewport || !track || !dotsContainer) return;
+
+    var slides = Array.prototype.slice.call(track.querySelectorAll('.skills-slide'));
+    var dots = dotsContainer.querySelectorAll('.skills-dot');
+    var currentIndex = 0;
+
+    function getSlideWidth() {
+      return slides[0] ? slides[0].getBoundingClientRect().width : viewport.clientWidth;
+    }
+
+    function goToSlide(index) {
+      currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+      track.style.transform = 'translate3d(-' + (currentIndex * getSlideWidth()) + 'px, 0, 0)';
+      Array.prototype.forEach.call(dots, function (dot, i) {
+        var active = i === currentIndex;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    Array.prototype.forEach.call(dots, function (dot) {
+      dot.addEventListener('click', function () {
+        goToSlide(parseInt(dot.getAttribute('data-index'), 10));
+      });
+    });
+
+    window.addEventListener('resize', function () { goToSlide(currentIndex); });
+    goToSlide(0);
+  }
+
+  function initRecognitionDots() {
+    var grid = document.getElementById('recognitionGrid');
+    var dotsContainer = document.getElementById('recognitionDots');
+    if (!grid || !dotsContainer) return;
+
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.rec-card'));
+    var scrollTimer = null;
+
+    function updateDots(index) {
+      var dots = dotsContainer.querySelectorAll('.recognition-dot');
+      Array.prototype.forEach.call(dots, function (dot, i) {
+        var active = i === index;
+        dot.classList.toggle('active', active);
+        dot.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    }
+
+    function scrollToCard(index) {
+      var card = cards[index];
+      if (!card) return;
+      grid.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+      updateDots(index);
+    }
+
+    function getNearestIndex() {
+      var left = grid.scrollLeft;
+      var nearest = 0;
+      var minDist = Infinity;
+      cards.forEach(function (card, i) {
+        var dist = Math.abs(card.offsetLeft - left);
+        if (dist < minDist) {
+          minDist = dist;
+          nearest = i;
+        }
+      });
+      return nearest;
+    }
+
+    dotsContainer.innerHTML = '';
+    cards.forEach(function (_, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'recognition-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to recognition ' + (i + 1));
+      dot.addEventListener('click', function () { scrollToCard(i); });
+      dotsContainer.appendChild(dot);
+    });
+
+    grid.addEventListener('scroll', function () {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function () { updateDots(getNearestIndex()); }, 60);
+    }, { passive: true });
+  }
+
+  function initTuitionTabs() {
+    var panel = document.getElementById('tuitionPanel');
+    var panelBg = document.getElementById('tuitionPanelBg');
+    var tabButtons = document.querySelectorAll('.tuition-tab');
+    var tabPanels = document.querySelectorAll('.tuition-tab-panel');
+    if (!tabButtons.length || !tabPanels.length) return;
+
+    function switchTuitionTab(tabName) {
+      var isFees = tabName === 'fees';
+      if (panel) {
+        panel.classList.toggle('tuition-panel--fees', isFees);
+        panel.classList.toggle('tuition-panel--eligibility', !isFees);
+      }
+      if (panelBg) {
+        panelBg.src = isFees ? './Assets/fees & financing/bg picture (15).png' : './Assets/eligibility/bg picture (14).png';
+      }
+      Array.prototype.forEach.call(tabButtons, function (button) {
+        var active = button.getAttribute('data-tab') === tabName;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      Array.prototype.forEach.call(tabPanels, function (tabPanel) {
+        var active = tabPanel.id === (isFees ? 'tuitionTabFees' : 'tuitionTabEligibility');
+        tabPanel.classList.toggle('active', active);
+        tabPanel.hidden = !active;
+      });
+    }
+
+    Array.prototype.forEach.call(tabButtons, function (button) {
+      button.addEventListener('click', function () {
+        switchTuitionTab(button.getAttribute('data-tab'));
+      });
+    });
+    switchTuitionTab('fees');
+  }
+
+  function initHeroApply() {
+    var applyBtn = document.getElementById('heroApplyNowBtn');
+    var npfTrigger = document.querySelector('.hero-npf-trigger.npfWidget-163d3e432dd1cc62ee589e07272304d0');
+    if (!applyBtn) return;
+    applyBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (npfTrigger) {
+        npfTrigger.click();
+        return;
+      }
+      var fallback = document.querySelector('.npfWidgetButton.npfWidget-163d3e432dd1cc62ee589e07272304d0');
+      if (fallback) fallback.click();
     });
   }
-  updateFaculty();
 
-  /* ── TESTIMONIALS SLIDER ── */
-  const testGrid = document.querySelector('.test-grid');
-  const testCards = document.querySelectorAll('.test-card');
-  let tIdx = 0;
-
-  function testMetrics() {
-    if (!testGrid || !testCards.length) return null;
-    const wrap = testGrid.parentElement;
-    const wrapStyles = window.getComputedStyle(wrap);
-    const pad = parseFloat(wrapStyles.paddingLeft) + parseFloat(wrapStyles.paddingRight);
-    const visibleWidth = wrap.clientWidth - pad;
-    const gap = parseFloat(window.getComputedStyle(testGrid).gap) || 20;
-    const w = testCards[0].offsetWidth + gap;
-    const visible = Math.max(1, Math.round((visibleWidth + gap) / w));
-    const maxIdx = Math.max(0, testCards.length - visible);
-    const maxShift = Math.max(0, testGrid.scrollWidth - visibleWidth);
-    return { w, visible, maxIdx, maxShift };
-  }
-
-  function updateTest() {
-    const m = testMetrics();
-    if (!m) return;
-    if (tIdx > m.maxIdx) tIdx = m.maxIdx;
-    const shift = Math.min(tIdx * m.w, m.maxShift);
-    testGrid.style.transform = 'translateX(-' + shift + 'px)';
-  }
-
-  document.getElementById('testPrev')?.addEventListener('click', () => {
-    if (tIdx > 0) { tIdx--; updateTest(); }
+  document.addEventListener('DOMContentLoaded', function () {
+    initFeaturesSlider();
+    initFacultySlider();
+    initSkillsDots();
+    initRecognitionDots();
+    initTuitionTabs();
+    initHeroApply();
   });
-
-  document.getElementById('testNext')?.addEventListener('click', () => {
-    const m = testMetrics();
-    if (!m) return;
-    if (tIdx < m.maxIdx) { tIdx++; updateTest(); }
-  });
-
-  updateTest();
-
-  /* ── VIDEO BOX ── */
-  const videoBox = document.querySelector('.video-box[data-youtube]');
-  if (videoBox) {
-    videoBox.addEventListener('click', function () {
-      const url = this.getAttribute('data-youtube');
-      if (url && url.indexOf('REPLACE_VIDEO_ID') === -1) {
-        window.open(url, '_blank');
-      }
-    });
-  }
-
-  /* ── DYNAMIC BACKGROUND SWAP FOR ELIGIBILITY SECTION ── */
-  $('#eligTabs button').on('shown.bs.tab', function (e) {
-    const targetId = $(e.target).attr('data-bs-target');
-    const $sec = $('.eligibility-section');
-    $sec.removeClass('bg-eligibility bg-fees bg-payment');
-    if (targetId === '#tab-elig') {
-      $sec.addClass('bg-eligibility');
-    } else if (targetId === '#tab-fees') {
-      $sec.addClass('bg-fees');
-    } else if (targetId === '#tab-payment') {
-      $sec.addClass('bg-payment');
-    }
-  });
-
-});
+})();
