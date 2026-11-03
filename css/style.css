@@ -7029,84 +7029,342 @@ iframe {
   .case-studies-grid { grid-template-columns: 1fr; }
 }
 
+/* ================================================
+   TESTIMONIALS / STUDENT COMMUNITY
+================================================ */
 .testimonials-section {
-  padding: 3.5rem 0 3rem;
-  background: #fff;
+  padding: 60px 0;
+  background: linear-gradient(93deg, #fff 3%, #fffcde 100%);
 }
-.testimonials-layout {
-  display: grid;
-  grid-template-columns: minmax(200px, 280px) 1fr;
-  gap: 2rem;
-  align-items: start;
-  max-width: 1100px;
-  margin: 0 auto;
+
+.sc-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
 }
+
 .sc-left-col {
-  padding-top: 0.25rem;
+  flex: 0 0 300px;
+  width: 300px;
+  padding-top: 50px;
 }
+
 .test-main-title {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 900;
+  color: #0b1354;
+  line-height: 1.1;
   display: flex;
   flex-direction: column;
-  gap: 0.1em;
-  font-weight: 800;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  color: #1a237e;
-  line-height: 1.15;
+  align-items: flex-start;
+  gap: 2px;
+  letter-spacing: -1px;
   margin: 0;
 }
-.test-title-line {
-  display: block;
+
+.test-main-title > span {
+  position: relative;
+  display: inline-block;
   white-space: nowrap;
 }
-.test-main-title .text-purple { color: #7b1fa2; }
-.test-main-title .text-cyan { color: #00acc1; }
+
+.test-main-title .text-purple {
+  color: #2a157e !important;
+}
+
+.test-main-title .text-cyan {
+  background: linear-gradient(90deg, #d6249f 0%, #6a0dad 45%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent !important;
+}
+
 .test-subtitle {
-  color: #555;
-  margin-top: 0.85rem;
-  font-weight: 600;
-  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
-  line-height: 1.4;
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.6vw, 32px);
+  color: #0d1b73;
+  line-height: 1.32;
+  margin-top: 44px;
+  margin-bottom: 0;
+  font-weight: 300;
 }
-.test-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-}
-.test-card {
-  background: #faf7fc;
-  border-radius: 1rem;
-  padding: 1.25rem 1.4rem;
-  box-shadow: 0 8px 24px rgba(26, 35, 126, 0.06);
+
+.sc-right-col {
+  flex: 1;
   min-width: 0;
+  position: relative;
 }
-.test-card.featured { background: linear-gradient(135deg, #f3e5f5 0%, #e0f7fa 100%); }
-.test-head { display: flex; gap: 0.85rem; align-items: center; margin-bottom: 0.75rem; }
-.test-quote-img { width: 42px; height: 42px; object-fit: contain; flex-shrink: 0; }
-.test-name { font-weight: 800; color: #1a237e; margin: 0; }
-.test-role { font-size: 0.85rem; color: #555; margin: 0; }
-.test-text { font-size: 0.92rem; line-height: 1.55; color: #333; }
-/* Desktop / 100%: two-column cards so the block doesn’t collapse into a long single stack */
-@media screen and (min-width: 992px) {
-  .testimonials-layout {
-    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
-    gap: 2.25rem;
-    align-items: start;
+
+.sc-slider-wrap {
+  container-type: inline-size;
+  overflow: hidden;
+  width: 100%;
+  padding: 48px 40px 44px 44px;
+}
+
+.test-grid {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.test-card {
+  position: relative;
+  flex: 0 0 calc((100cqw - 40px) / 3);
+  width: calc((100cqw - 40px) / 3);
+  max-width: calc((100cqw - 40px) / 3);
+  min-width: 0;
+  height: 530px;
+  min-height: 530px;
+  max-height: 530px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: visible;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.test-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08);
+}
+
+.test-card.featured {
+  border: 2px solid #00c2cb;
+  box-shadow: 0 20px 48px rgba(0, 194, 203, 0.12);
+}
+
+.test-card.featured .test-text {
+  font-size: 11px;
+}
+
+.test-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -6px;
+  width: 58px;
+  height: 58px;
+  background-color: #0d1b73;
+  -webkit-mask: url("../Assets/ase.png") center / contain no-repeat;
+  mask: url("../Assets/ase.png") center / contain no-repeat;
+  transform: translateY(50%) rotate(180deg);
+  opacity: 0.9;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.test-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-left: 34px;
+  min-height: 44px;
+}
+
+.test-head-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.test-avatar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00c2cb 0%, #6a0dad 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  box-shadow: 0 8px 18px rgba(106, 13, 173, 0.22);
+  flex-shrink: 0;
+}
+
+.test-avatar img,
+.test-quote-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.test-name {
+  font-size: 19px;
+  font-weight: 700;
+  color: #0b1354;
+  text-align: left;
+  margin: 0 0 4px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.test-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #00c2cb;
+  text-align: left;
+  margin: 0;
+  font-style: italic;
+  line-height: 1.4;
+  font-family: "Montserrat", sans-serif;
+}
+
+.test-text {
+  font-size: 12px;
+  color: #0d1b73;
+  line-height: 1.7;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 4px;
+  font-family: "Montserrat", sans-serif;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.test-text::-webkit-scrollbar {
+  width: 4px;
+}
+
+.test-text::-webkit-scrollbar-thumb {
+  background: rgba(0, 194, 203, 0.35);
+  border-radius: 4px;
+}
+
+.sc-nav-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  padding-left: 44px;
+}
+
+.faculty-nav-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #6a0dad;
+  background: transparent;
+  color: #6a0dad;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  line-height: 1;
+  padding: 0;
+}
+
+.faculty-nav-btn:hover {
+  background: #6a0dad;
+  color: #fff;
+}
+
+@media (max-width: 1199.98px) {
+  .sc-layout {
+    flex-direction: column;
+    gap: 30px;
   }
+
   .sc-left-col {
-    position: sticky;
-    top: 1.5rem;
+    width: 100%;
+    flex: none;
+    padding-top: 0;
   }
-  .test-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.35rem;
+
+  .test-main-title {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .test-card.featured {
-    grid-column: 1 / -1;
+
+  .test-subtitle {
+    margin-top: 12px;
+  }
+
+  .test-card {
+    flex: 0 0 calc((100cqw - 20px) / 2);
+    width: calc((100cqw - 20px) / 2);
+    max-width: calc((100cqw - 20px) / 2);
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    padding: 20px 16px;
+  }
+
+  .test-name {
+    font-size: 17px;
+  }
+
+  .test-role {
+    font-size: 11.5px;
+  }
+
+  .test-text {
+    font-size: 10.5px;
+    line-height: 1.4;
   }
 }
-@media (max-width: 991px) {
-  .testimonials-layout { grid-template-columns: 1fr; }
-  .sc-left-col { position: static; }
+
+@media (max-width: 767.98px) {
+  .test-main-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .sc-right-col {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .sc-slider-wrap {
+    padding: 40px 32px 36px 40px;
+    overflow: hidden;
+  }
+
+  .sc-nav-row {
+    padding-left: 4px;
+    margin-top: 16px;
+  }
+
+  .test-card {
+    flex: 0 0 100cqw !important;
+    width: 100cqw !important;
+    max-width: 100cqw !important;
+    min-width: 0 !important;
+    height: auto;
+    min-height: 420px;
+    max-height: none;
+    padding: 20px 16px;
+  }
+
+  .test-text {
+    overflow: visible;
+  }
+
+  .test-avatar {
+    width: 68px;
+    height: 68px;
+  }
 }
 
 .jii-section {
