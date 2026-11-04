@@ -7349,17 +7349,21 @@ iframe {
 .jii-title {
   font-weight: 800;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 1rem;
   text-align: center;
+  white-space: nowrap;
 }
 .jii-body p {
   font-size: 0.98rem;
-  line-height: 1.6;
-  margin: 0 auto 0.9rem;
+  line-height: 1.55;
+  margin: 0 auto;
   text-align: center;
+  max-width: 40rem;
 }
-.jii-body p:last-child {
-  margin-bottom: 0;
+@media screen and (max-width: 575.98px) {
+  .jii-title {
+    white-space: normal;
+  }
 }
 
 .video-section {
