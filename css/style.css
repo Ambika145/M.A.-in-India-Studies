@@ -7287,16 +7287,29 @@ iframe {
 .jii-section {
   position: relative;
   padding: 4rem 1.25rem;
-  background: url("./Assets/Jindal India Institute/bg frame (3).png") right center / cover no-repeat;
+  background: url("./Assets/Jindal India Institute/bg frame (3).png") center center / cover no-repeat;
   color: #fff;
   min-height: 420px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.jii-section > .container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .jii-section::before {
   content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(18,24,92,0.92) 0%, rgba(52,14,102,0.75) 48%, rgba(0,0,0,0.28) 100%);
+  position: absolute;
+  inset: 0;
+  /* Even overlay — content is centered, no left-only panel */
+  background: linear-gradient(
+    180deg,
+    rgba(18, 24, 92, 0.88) 0%,
+    rgba(52, 14, 102, 0.82) 50%,
+    rgba(18, 24, 92, 0.9) 100%
+  );
   z-index: 0;
 }
 @media screen and (min-width: 992px) {
@@ -7305,8 +7318,8 @@ iframe {
     padding: 4.5rem 1.5rem;
   }
   .jii-inner {
-    max-width: 580px;
-    padding: 0.5rem 0;
+    max-width: 720px;
+    padding: 0.5rem 1rem;
   }
   .jii-title {
     font-size: clamp(2rem, 2.5vw, 2.55rem);
@@ -7318,19 +7331,36 @@ iframe {
   }
 }
 @media screen and (max-width: 991px) {
-  /* Darker overlay on tablet/mobile so white copy stays readable over the photo */
   .jii-section::before {
-    background: linear-gradient(180deg, rgba(18, 24, 92, 0.92) 0%, rgba(52, 14, 102, 0.88) 55%, rgba(0, 0, 0, 0.62) 100%);
+    background: linear-gradient(180deg, rgba(18, 24, 92, 0.92) 0%, rgba(52, 14, 102, 0.88) 55%, rgba(18, 24, 92, 0.9) 100%);
   }
-  .jii-body p { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35); }
+  .jii-body p {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  }
 }
-.jii-inner { position: relative; z-index: 1; max-width: 560px; }
+.jii-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
 .jii-title {
   font-weight: 800;
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  margin-bottom: 1.25rem;
+  margin: 0 auto 1.25rem;
+  text-align: center;
 }
-.jii-body p { font-size: 0.98rem; line-height: 1.6; margin-bottom: 0.9rem; }
+.jii-body p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin: 0 auto 0.9rem;
+  text-align: center;
+}
+.jii-body p:last-child {
+  margin-bottom: 0;
+}
 
 .video-section {
   padding: 2.5rem 0 3rem;
