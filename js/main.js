@@ -241,9 +241,63 @@
     });
   }
 
+  function initTestimonialReadMore() {
+    var cards = document.querySelectorAll('.testimonials-section .test-card');
+    if (!cards.length) return;
+
+    Array.prototype.forEach.call(cards, function (card) {
+      var text = card.querySelector('.test-text');
+      if (!text) return;
+
+      text.classList.add('is-clamped');
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'test-readmore';
+      btn.textContent = 'Read more';
+      btn.hidden = true;
+      text.insertAdjacentElement('afterend', btn);
+
+      function needsToggle() {
+        if (text.classList.contains('is-expanded')) {
+          return text.scrollHeight > 1;
+        }
+        return text.scrollHeight > text.clientHeight + 2;
+      }
+
+      function sync() {
+        if (text.classList.contains('is-expanded')) {
+          btn.hidden = false;
+          btn.textContent = 'Read less';
+          return;
+        }
+        text.classList.add('is-clamped');
+        btn.hidden = !needsToggle();
+        btn.textContent = 'Read more';
+      }
+
+      btn.addEventListener('click', function () {
+        var expanded = text.classList.toggle('is-expanded');
+        if (expanded) {
+          text.classList.remove('is-clamped');
+          btn.textContent = 'Read less';
+          btn.hidden = false;
+        } else {
+          text.classList.add('is-clamped');
+          btn.textContent = 'Read more';
+          sync();
+        }
+      });
+
+      sync();
+      window.addEventListener('resize', sync);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initFeaturesSlider();
     initFacultySlider();
+    initTestimonialReadMore();
     initSkillsDots();
     initRecognitionDots();
     initTuitionTabs();

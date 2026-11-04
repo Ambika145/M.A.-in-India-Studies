@@ -7128,7 +7128,6 @@ iframe {
 }
 
 .test-card.featured {
-  grid-column: 1 / -1;
   border: 2px solid #00c2cb;
   box-shadow: 0 16px 40px rgba(0, 194, 203, 0.12);
   background: linear-gradient(135deg, #ffffff 0%, #f3fcfd 100%);
@@ -7216,7 +7215,40 @@ iframe {
   position: relative;
   z-index: 1;
   padding-right: 0.35rem;
-  padding-bottom: 0.5rem;
+}
+
+.test-text.is-clamped {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
+  line-clamp: 6;
+  overflow: hidden;
+}
+
+.test-readmore {
+  align-self: flex-start;
+  margin-top: 0.65rem;
+  margin-bottom: 0.15rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #6a0dad;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.test-readmore:hover {
+  color: #00c2cb;
+}
+
+.test-readmore[hidden] {
+  display: none !important;
 }
 
 .sc-nav-row,
@@ -7251,9 +7283,6 @@ iframe {
     gap: 1.5rem;
   }
 
-  .test-card.featured {
-    grid-column: auto;
-  }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
