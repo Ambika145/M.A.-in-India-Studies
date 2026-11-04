@@ -7032,7 +7032,7 @@ iframe {
 }
 
 /* ================================================
-   TESTIMONIALS / STUDENT COMMUNITY — card grid
+   TESTIMONIALS / STUDENT COMMUNITY — heading top + 3 cards/row
 ================================================ */
 .testimonials-section {
   padding: 60px 0 72px;
@@ -7041,27 +7041,29 @@ iframe {
 }
 
 .sc-layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
 }
 
-.sc-left-col {
-  padding-top: 1.25rem;
-  position: sticky;
-  top: 1.25rem;
+.sc-header {
+  text-align: center;
+  max-width: 42rem;
+  margin: 0 auto;
 }
 
 .test-main-title {
   font-size: clamp(28px, 3.5vw, 44px);
   font-weight: 900;
   color: #0b1354;
-  line-height: 1.1;
+  line-height: 1.15;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  gap: 0.35rem 0.55rem;
   letter-spacing: -1px;
   margin: 0;
 }
@@ -7086,23 +7088,24 @@ iframe {
 .test-subtitle {
   font-family: "Montserrat", sans-serif;
   font-style: italic;
-  font-size: clamp(1.15rem, 2vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
   color: #0d1b73;
-  line-height: 1.35;
-  margin-top: 1.5rem;
-  margin-bottom: 0;
+  line-height: 1.4;
+  margin: 0.85rem auto 0;
   font-weight: 300;
+  max-width: 28rem;
 }
 
 .sc-right-col {
   min-width: 0;
+  width: 100%;
 }
 
 .test-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.75rem 1.5rem;
-  padding: 1.75rem 0.75rem 1.5rem 1.25rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem 1.35rem;
+  padding: 1.75rem 0.85rem 1rem;
 }
 
 .test-card {
@@ -7218,7 +7221,7 @@ iframe {
 }
 
 .test-text.is-clamped {
-  max-height: calc(1.65em * 6);
+  max-height: calc(1.65em * 5);
   overflow: hidden;
 }
 
@@ -7258,42 +7261,26 @@ iframe {
   display: none !important;
 }
 
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
+  .test-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
   .sc-layout {
-    grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
-  .sc-left-col {
-    position: static;
-    padding-top: 0;
-  }
-
-  .test-main-title {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.75rem;
-  }
-
-  .test-subtitle {
-    margin-top: 0.75rem;
-  }
-
   .test-grid {
     grid-template-columns: 1fr;
-    padding: 1.5rem 0.5rem 0.5rem 1rem;
+    padding: 1.5rem 0.65rem 0.5rem;
     gap: 1.5rem;
   }
 
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .sc-layout {
-    grid-template-columns: minmax(180px, 220px) minmax(0, 1fr);
-  }
-
-  .test-grid {
-    gap: 1.35rem;
+  .test-avatar {
+    width: 56px;
+    height: 56px;
   }
 }
 
