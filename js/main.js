@@ -249,8 +249,6 @@
       var text = card.querySelector('.test-text');
       if (!text) return;
 
-      text.classList.add('is-clamped');
-
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'test-readmore';
@@ -258,39 +256,55 @@
       btn.hidden = true;
       text.insertAdjacentElement('afterend', btn);
 
-      function needsToggle() {
-        if (text.classList.contains('is-expanded')) {
-          return text.scrollHeight > 1;
+      function measureNeedsToggle() {
+        var expanded = text.classList.contains('is-expanded');
+        text.classList.remove('is-expanded');
+        text.classList.remove('is-clamped');
+        var fullHeight = text.scrollHeight;
+        text.classList.add('is-clamped');
+        var clampedHeight = text.clientHeight;
+        if (expanded) {
+          text.classList.remove('is-clamped');
+          text.classList.add('is-expanded');
         }
-        return text.scrollHeight > text.clientHeight + 2;
+        return fullHeight > clampedHeight + 4;
       }
 
       function sync() {
+        var needs = measureNeedsToggle();
         if (text.classList.contains('is-expanded')) {
-          btn.hidden = false;
+          btn.hidden = !needs;
           btn.textContent = 'Read less';
           return;
         }
         text.classList.add('is-clamped');
-        btn.hidden = !needsToggle();
+        text.classList.remove('is-expanded');
+        btn.hidden = !needs;
         btn.textContent = 'Read more';
       }
 
       btn.addEventListener('click', function () {
-        var expanded = text.classList.toggle('is-expanded');
-        if (expanded) {
-          text.classList.remove('is-clamped');
-          btn.textContent = 'Read less';
-          btn.hidden = false;
-        } else {
+        if (text.classList.contains('is-expanded')) {
+          text.classList.remove('is-expanded');
           text.classList.add('is-clamped');
           btn.textContent = 'Read more';
-          sync();
+        } else {
+          text.classList.remove('is-clamped');
+          text.classList.add('is-expanded');
+          btn.textContent = 'Read less';
         }
+        btn.hidden = false;
       });
 
-      sync();
-      window.addEventListener('resize', sync);
+      function runSync() {
+        window.requestAnimationFrame(sync);
+      }
+
+      runSync();
+      window.addEventListener('resize', runSync);
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(runSync);
+      }
     });
   }
 

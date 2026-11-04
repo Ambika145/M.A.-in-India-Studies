@@ -7211,18 +7211,20 @@ iframe {
   font-weight: 500;
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  flex: 1 1 auto;
+  flex: 0 1 auto;
   position: relative;
   z-index: 1;
   padding-right: 0.35rem;
 }
 
 .test-text.is-clamped {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  line-clamp: 6;
+  max-height: calc(1.65em * 6);
   overflow: hidden;
+}
+
+.test-text.is-expanded {
+  max-height: none;
+  overflow: visible;
 }
 
 .test-readmore {
