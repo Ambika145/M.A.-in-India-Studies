@@ -241,71 +241,9 @@
     });
   }
 
-  function initTestimonialsSlider() {
-    var testGrid = document.querySelector('.test-grid');
-    var testCards = document.querySelectorAll('.test-card');
-    var prevBtn = document.getElementById('testPrev');
-    var nextBtn = document.getElementById('testNext');
-    if (!testGrid || !testCards.length) return;
-
-    var tIdx = 0;
-
-    function testMetrics() {
-      var wrap = testGrid.parentElement;
-      if (!wrap) return null;
-      var wrapStyles = window.getComputedStyle(wrap);
-      var pad = parseFloat(wrapStyles.paddingLeft) + parseFloat(wrapStyles.paddingRight);
-      var visibleWidth = wrap.clientWidth - pad;
-      var gap = parseFloat(window.getComputedStyle(testGrid).gap) || 20;
-      var w = testCards[0].offsetWidth + gap;
-      var visible = Math.max(1, Math.round((visibleWidth + gap) / w));
-      var maxIdx = Math.max(0, testCards.length - visible);
-      var maxShift = Math.max(0, testGrid.scrollWidth - visibleWidth);
-      return { w: w, maxIdx: maxIdx, maxShift: maxShift };
-    }
-
-    function updateTest() {
-      var m = testMetrics();
-      if (!m) return;
-      if (tIdx > m.maxIdx) tIdx = m.maxIdx;
-      if (tIdx < 0) tIdx = 0;
-      var shift = Math.min(tIdx * m.w, m.maxShift);
-      testGrid.style.transform = 'translateX(-' + shift + 'px)';
-      if (prevBtn) prevBtn.disabled = tIdx <= 0;
-      if (nextBtn) nextBtn.disabled = tIdx >= m.maxIdx;
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function () {
-        if (tIdx > 0) {
-          tIdx -= 1;
-          updateTest();
-        }
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function () {
-        var m = testMetrics();
-        if (!m) return;
-        if (tIdx < m.maxIdx) {
-          tIdx += 1;
-          updateTest();
-        }
-      });
-    }
-
-    window.addEventListener('resize', function () {
-      tIdx = 0;
-      updateTest();
-    });
-    window.addEventListener('load', updateTest);
-    updateTest();
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     initFeaturesSlider();
     initFacultySlider();
-    initTestimonialsSlider();
     initSkillsDots();
     initRecognitionDots();
     initTuitionTabs();
